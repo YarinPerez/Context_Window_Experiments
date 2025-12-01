@@ -1,0 +1,65 @@
+[
+  {
+    "file_name": "file_01_end.txt",
+    "query": "Who is the CEO of the company?",
+    "answer": "David Cohen",
+    "answer_position": 4926,
+    "answer_word_position": 847
+  },
+  {
+    "file_name": "file_02_middle.txt",
+    "query": "What year was the organization founded?",
+    "answer": "1995",
+    "answer_position": 2114,
+    "answer_word_position": 364
+  },
+  {
+    "file_name": "file_03_end.txt",
+    "query": "What is the primary product offered?",
+    "answer": "CloudSync platform",
+    "answer_position": 4446,
+    "answer_word_position": 752
+  },
+  {
+    "file_name": "file_04_middle.txt",
+    "query": "Where is the headquarters located?",
+    "answer": "San Francisco, California",
+    "answer_position": 2258,
+    "answer_word_position": 390
+  },
+  {
+    "file_name": "file_05_start.txt",
+    "query": "What was the annual revenue for 2024?",
+    "answer": "250 million dollars",
+    "answer_position": 33,
+    "answer_word_position": 5
+  },
+  {
+    "file_name": "file_06_middle.txt",
+    "query": "How many employees does the company have?",
+    "answer": "over 2000 talented professionals",
+    "answer_position": 2138,
+    "answer_word_position": 372
+  },
+  {
+    "file_name": "file_07_start.txt",
+    "query": "Who is the main competitor?",
+    "answer": "TechFlow Industries",
+    "answer_position": 36,
+    "answer_word_position": 6
+  },
+  {
+    "file_name": "file_08_start.txt",
+    "query": "What was the name of the latest product launch?",
+    "answer": "Project Nexus",
+    "answer_position": 39,
+    "answer_word_position": 7
+  },
+  {
+    "file_name": "file_09_end.txt",
+    "query": "How much venture capital funding was received?",
+    "answer": "50 million dollars",
+    "answer_position": 4161,
+    "answer_word_position": 723
+  }
+]

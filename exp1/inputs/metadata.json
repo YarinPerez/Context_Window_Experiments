@@ -1,0 +1,92 @@
+[
+  {
+    "file_name": "file_01_end.txt",
+    "file_number": 1,
+    "position": "end",
+    "key_data": "The CEO of the company is David Cohen",
+    "query": "Who is the CEO of the company?",
+    "category": "company_info",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 5993
+  },
+  {
+    "file_name": "file_02_middle.txt",
+    "file_number": 2,
+    "position": "middle",
+    "key_data": "The founding year of our organization was 1995",
+    "query": "What year was the organization founded?",
+    "category": "historical",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 3001
+  },
+  {
+    "file_name": "file_03_end.txt",
+    "file_number": 3,
+    "position": "end",
+    "key_data": "Our primary product is the CloudSync platform",
+    "query": "What is the primary product offered?",
+    "category": "product",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 5994
+  },
+  {
+    "file_name": "file_04_middle.txt",
+    "file_number": 4,
+    "position": "middle",
+    "key_data": "The headquarters is located in San Francisco, California",
+    "query": "Where is the headquarters located?",
+    "category": "location",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 3001
+  },
+  {
+    "file_name": "file_05_start.txt",
+    "file_number": 5,
+    "position": "start",
+    "key_data": "Annual revenue for 2024 reached 250 million dollars",
+    "query": "What was the annual revenue for 2024?",
+    "category": "financial",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 1
+  },
+  {
+    "file_name": "file_06_middle.txt",
+    "file_number": 6,
+    "position": "middle",
+    "key_data": "The company employs over 2000 talented professionals",
+    "query": "How many employees does the company have?",
+    "category": "staffing",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 3001
+  },
+  {
+    "file_name": "file_07_start.txt",
+    "file_number": 7,
+    "position": "start",
+    "key_data": "Our main competitor is TechFlow Industries",
+    "query": "Who is the main competitor?",
+    "category": "market",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 1
+  },
+  {
+    "file_name": "file_08_start.txt",
+    "file_number": 8,
+    "position": "start",
+    "key_data": "The latest product launch was called Project Nexus",
+    "query": "What was the name of the latest product launch?",
+    "category": "product",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 1
+  },
+  {
+    "file_name": "file_09_end.txt",
+    "file_number": 9,
+    "position": "end",
+    "key_data": "Investment funding from venture capital totaled 50 million dollars",
+    "query": "How much venture capital funding was received?",
+    "category": "financial",
+    "actual_word_count": 6000,
+    "data_position_approximate_word": 5992
+  }
+]
