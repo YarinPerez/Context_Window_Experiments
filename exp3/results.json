@@ -1,0 +1,107 @@
+[
+  {
+    "query": "מה הן תופעות הלוואי של תרופה X?",
+    "expected_category": "medicine",
+    "full_context": {
+      "context_size": 4593,
+      "retrieval_time": 0.0,
+      "doc_count": 20,
+      "relevance_score": 0.35
+    },
+    "rag": {
+      "context_size": 729,
+      "retrieval_time": 0.15680503845214844,
+      "doc_count": 3,
+      "relevance_score": 1.0
+    },
+    "comparison": {
+      "size_reduction": 84.12802090137166,
+      "time_difference": -0.15680503845214844,
+      "relevance_gain": 0.65
+    }
+  },
+  {
+    "query": "מה הם זכויות הצרכן?",
+    "expected_category": "law",
+    "full_context": {
+      "context_size": 4593,
+      "retrieval_time": 0.0,
+      "doc_count": 20,
+      "relevance_score": 0.35
+    },
+    "rag": {
+      "context_size": 667,
+      "retrieval_time": 0.10881495475769043,
+      "doc_count": 3,
+      "relevance_score": 0.6666666666666666
+    },
+    "comparison": {
+      "size_reduction": 85.47790115392989,
+      "time_difference": -0.10881495475769043,
+      "relevance_gain": 0.31666666666666665
+    }
+  },
+  {
+    "query": "איך טכנולוגיית ענן מגנה על נתונים?",
+    "expected_category": "technology",
+    "full_context": {
+      "context_size": 4593,
+      "retrieval_time": 0.0,
+      "doc_count": 20,
+      "relevance_score": 0.3
+    },
+    "rag": {
+      "context_size": 652,
+      "retrieval_time": 0.11300516128540039,
+      "doc_count": 3,
+      "relevance_score": 0.6666666666666666
+    },
+    "comparison": {
+      "size_reduction": 85.80448508600044,
+      "time_difference": -0.11300516128540039,
+      "relevance_gain": 0.36666666666666664
+    }
+  },
+  {
+    "query": "איך מטפלים בסוכרת?",
+    "expected_category": "medicine",
+    "full_context": {
+      "context_size": 4593,
+      "retrieval_time": 0.0,
+      "doc_count": 20,
+      "relevance_score": 0.35
+    },
+    "rag": {
+      "context_size": 620,
+      "retrieval_time": 0.1100001335144043,
+      "doc_count": 3,
+      "relevance_score": 0.3333333333333333
+    },
+    "comparison": {
+      "size_reduction": 86.5011974744176,
+      "time_difference": -0.1100001335144043,
+      "relevance_gain": -0.016666666666666663
+    }
+  },
+  {
+    "query": "מה הם חוקי הגירושין בישראל?",
+    "expected_category": "law",
+    "full_context": {
+      "context_size": 4593,
+      "retrieval_time": 0.0,
+      "doc_count": 20,
+      "relevance_score": 0.35
+    },
+    "rag": {
+      "context_size": 662,
+      "retrieval_time": 0.1119999885559082,
+      "doc_count": 3,
+      "relevance_score": 0.6666666666666666
+    },
+    "comparison": {
+      "size_reduction": 85.58676246462007,
+      "time_difference": -0.1119999885559082,
+      "relevance_gain": 0.31666666666666665
+    }
+  }
+]
