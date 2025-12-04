@@ -30,14 +30,19 @@ RAG demonstrates superior document relevance compared to full context.
 
 ### 3. Retrieval Performance
 
-RAG provides faster retrieval due to reduced document processing.
-
 **Expected Results:**
-- Full Context Retrieval Time: 5-15ms (all documents must be processed)
-- RAG Retrieval Time: 1-3ms (only similarity search needed)
+- Full Context Retrieval Time: 5-15ms
+- RAG Retrieval Time: 1-3ms
 - **Speed Improvement: 3-5x faster**
 
-**Impact**: Faster retrieval enables real-time query response capabilities with lower latency.
+**Actual Results:**
+- Full Context Retrieval Time: 0.0ms (instantaneous)
+- RAG Retrieval Time: 120.1ms (average)
+- **Trade-off: RAG adds latency for quality gain**
+
+**Analysis**: Full context retrieval is instantaneous because it simply returns all pre-stored documents. RAG requires embedding generation, similarity computation, and vector search (~120ms overhead). However, this latency is acceptable for quality improvements and typical production scenarios.
+
+**Impact**: While RAG adds latency, the massive relevance improvement (96.7% gain) and context efficiency (85.5% reduction) make this an acceptable trade-off for most applications.
 
 ### 4. Quality Preservation
 
@@ -138,15 +143,25 @@ The `aggregate_results()` function provides summary statistics:
 ### When to Use RAG
 1. **Large document collections**: 50+ documents
 2. **Domain-specific queries**: Queries targeting specific topics
-3. **Real-time applications**: Where latency matters
-4. **Limited context windows**: LLMs with token constraints
-5. **Cost optimization**: Reduce computational resources
+3. **Quality over speed**: When relevance is more important than latency
+4. **Limited context windows**: LLMs with token constraints (85% reduction)
+5. **Cost optimization**: Reduce computational overhead with smaller context
 
 ### When to Use Full Context
 1. **Small document collections**: <10 documents
-2. **Exploratory research**: Need comprehensive background
-3. **Complex multi-topic queries**: Questions spanning domains
-4. **High precision required**: Cannot risk missing relevant documents
+2. **Strict latency requirements**: <50ms response time needed
+3. **Exploratory research**: Need comprehensive background
+4. **Complex multi-topic queries**: Questions spanning domains
+5. **High precision required**: Cannot risk missing relevant documents
+
+### Performance Trade-offs
+
+| Criterion | Full Context | RAG | Recommendation |
+|-----------|--------------|-----|-----------------|
+| **Latency** | 0ms | 120ms | Use Full Context if latency critical |
+| **Relevance** | 34% | 67% | **Use RAG for quality** |
+| **Context Size** | 4,593 chars | 680 chars | **Use RAG for efficiency** |
+| **Scalability** | Poor (increases with docs) | Good (fixed k documents) | **Use RAG for large collections** |
 
 ## Technical Insights
 

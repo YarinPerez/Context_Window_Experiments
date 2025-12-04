@@ -80,7 +80,7 @@ class ResultsAnalyzer:
         print(f"Chart saved to {output_path}")
 
     def create_performance_chart(self, output_path: str = "charts/performance.png"):
-        """Create retrieval time comparison chart.
+        """Create retrieval time comparison chart with annotations.
 
         Args:
             output_path: Output file path
@@ -91,22 +91,34 @@ class ResultsAnalyzer:
         Path(output_path).parent.mkdir(exist_ok=True)
 
         queries = [r["query"][:30] for r in self.results]
-        full_times = [r["full_context"]["retrieval_time"] * 1000 for r in self.results]
         rag_times = [r["rag"]["retrieval_time"] * 1000 for r in self.results]
 
         x = np.arange(len(queries))
-        width = 0.35
+        fig, ax = plt.subplots(figsize=(12, 6))
 
-        fig, ax = plt.subplots(figsize=(10, 6))
+        bars = ax.bar(x, rag_times, width=0.6, label="RAG", alpha=0.8, color='#FF8C00')
 
-        ax.bar(x - width / 2, full_times, width, label="Full Context", alpha=0.8)
-        ax.bar(x + width / 2, rag_times, width, label="RAG", alpha=0.8)
-        ax.set_xlabel("Query")
-        ax.set_ylabel("Retrieval Time (ms)")
-        ax.set_title("Retrieval Time Comparison")
+        # Add value labels on bars
+        for i, (bar, time) in enumerate(zip(bars, rag_times)):
+            height = bar.get_height()
+            ax.text(bar.get_x() + bar.get_width()/2., height,
+                   f'{time:.1f}ms', ha='center', va='bottom', fontweight='bold')
+
+        # Add Full Context reference line at 0ms with annotation
+        ax.axhline(y=0, color='green', linestyle='--', linewidth=2,
+                  label='Full Context (0ms)', alpha=0.7)
+        ax.text(-0.5, 5, 'Full Context: 0ms', fontsize=11, color='green',
+               fontweight='bold', bbox=dict(boxstyle='round', facecolor='lightgreen', alpha=0.3))
+
+        ax.set_xlabel("Query", fontsize=11, fontweight='bold')
+        ax.set_ylabel("Retrieval Time (ms)", fontsize=11, fontweight='bold')
+        ax.set_title("Retrieval Time: RAG vs Full Context\n(Note: Full Context is instantaneous at 0ms)",
+                    fontsize=12, fontweight='bold')
         ax.set_xticks(x)
         ax.set_xticklabels(queries, rotation=45, ha="right")
-        ax.legend()
+        ax.legend(fontsize=10, loc='upper right')
+        ax.grid(axis='y', alpha=0.3)
+        ax.set_ylim([0, max(rag_times) * 1.2])
 
         plt.tight_layout()
         plt.savefig(output_path, dpi=100, bbox_inches="tight")
