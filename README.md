@@ -292,7 +292,7 @@ If you use these experiments or findings in your research, please cite:
 1. Liu, N. F., Lin, K., Hewitt, J., et al. (2023). "Lost in the Middle: How Language Models Use Long Contexts." *arXiv:2307.03172*
 2. Anthropic. (2024). "Claude Haiku 4.5 Technical Documentation"
 3. Lewis, P., et al. (2020). "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." *arXiv:2005.11401*
-4. Segal, Y. "Lab: Context Windows in Practice" (טנדוטס) - תורומשתויוכזהלכ©
+4. Segal, Yoram "Lab: Context Windows in Practice" (טנדוטס) כל הזכיות שמורות©
 
 ## License
 
