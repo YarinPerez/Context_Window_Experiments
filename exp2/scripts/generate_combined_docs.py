@@ -21,7 +21,7 @@ TARGET_FILE = "file_02_middle.txt"
 TARGET_QUERY = "What year was the organization founded?"
 TARGET_ANSWER = "1995"
 
-DOC_COUNTS = [2, 5, 10, 20, 50]
+DOC_COUNTS = [20, 25, 30, 35, 40, 45, 50]
 
 SEPARATOR_TEMPLATE = """====================================
 DOCUMENT {num} OF {total}

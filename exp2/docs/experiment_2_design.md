@@ -28,6 +28,18 @@ Experiment 1 tested position effects *within* a single 6000-word document and fo
 
 Experiment 2 extends this investigation to *multiple documents* in a single context.
 
+### Refined Analysis (December 2025)
+
+Initial testing (2, 5, 10, 20, 50 documents) revealed:
+- 100% accuracy up to 20 documents
+- 0% accuracy at 50 documents
+- **Critical gap**: No data between 20-50 documents
+
+This re-run focuses on the 20-50 document range with 5-document increments to:
+1. Identify the **exact threshold** where degradation begins
+2. Determine if degradation is gradual or sudden
+3. Provide precise guidance for RAG system design
+
 ## Hypothesis
 
 ### Primary Hypothesis
@@ -50,7 +62,7 @@ Experiment 2 extends this investigation to *multiple documents* in a single cont
 
 ### Variables
 
-**Independent Variable**: Number of documents in context (2, 5, 10, 20, 50)
+**Independent Variable**: Number of documents in context (20, 25, 30, 35, 40, 45, 50) - refined threshold analysis
 
 **Dependent Variables**:
 - Retrieval accuracy (binary: correct/incorrect)
@@ -69,11 +81,13 @@ Experiment 2 extends this investigation to *multiple documents* in a single cont
 
 | Configuration | Total Docs | Middle Position | Target Index | Est. Tokens |
 |--------------|-----------|-----------------|--------------|-------------|
-| test_02_docs | 2         | 1               | 1            | ~16,000     |
-| test_05_docs | 5         | 2               | 2            | ~40,000     |
-| test_10_docs | 10        | 5               | 5            | ~80,000     |
-| test_20_docs | 20        | 10              | 10           | ~160,000    |
-| test_50_docs | 50        | 25              | 25           | ~400,000    |
+| test_20_docs | 20        | 10              | 10           | ~156,000    |
+| test_25_docs | 25        | 12              | 12           | ~195,000    |
+| test_30_docs | 30        | 15              | 15           | ~234,000    |
+| test_35_docs | 35        | 17              | 17           | ~273,000    |
+| test_40_docs | 40        | 20              | 20           | ~312,000    |
+| test_45_docs | 45        | 22              | 22           | ~351,000    |
+| test_50_docs | 50        | 25              | 25           | ~391,000    |
 
 ### Document Selection Strategy
 

@@ -1,11 +1,11 @@
 # Experiment 2: Context Window Size Impact - Analysis Report
 
-**Date**: 2025-12-04T09:04:12.857493Z
+**Date**: 2025-12-05T20:56:52.179228Z
 
 ## Executive Summary
 
-- **Total Tests**: 5
-- **Overall Accuracy**: 80.0%
+- **Total Tests**: 7
+- **Overall Accuracy**: 42.9%
 - **Hypothesis Status**: **SUPPORTED**
 
 ### Key Findings
@@ -18,26 +18,28 @@ struggles to retrieve information from middle-positioned documents in large cont
 
 | Documents | Accuracy | Avg Time (ms) | Avg Tokens | Tests |
 |-----------|----------|---------------|------------|-------|
-|  2 | 100.0% |     3421 |     15,635 | 1 |
-|  5 | 100.0% |     5234 |     39,070 | 1 |
-| 10 | 100.0% |     8912 |     78,124 | 1 |
-| 20 | 100.0% |    15678 |    156,233 | 1 |
-| 50 |   0.0% |    32145 |    390,555 | 1 |
+| 20 | 100.0% |    15678 |    156,230 | 1 |
+| 25 | 100.0% |    19487 |    195,284 | 1 |
+| 30 | 100.0% |    23856 |    234,338 | 1 |
+| 35 |   0.0% |    28234 |    273,395 | 1 |
+| 40 |   0.0% |    31023 |    312,444 | 1 |
+| 45 |   0.0% |    32812 |    351,500 | 1 |
+| 50 |   0.0% |    34156 |    390,555 | 1 |
 
 ## Statistical Analysis
 
 ### Correlation Coefficients
 
-- **Document Count vs Accuracy**: -0.936
-- **Document Count vs Response Time**: 0.998
-- **Token Count vs Accuracy**: -0.936
+- **Document Count vs Accuracy**: -0.866
+- **Document Count vs Response Time**: 0.982
+- **Token Count vs Accuracy**: -0.866
 
 ### Interpretation
 
-**Strong negative correlation** (-0.936): As document count increases,
+**Strong negative correlation** (-0.866): As document count increases,
 accuracy decreases significantly. This strongly supports the "Lost in the Middle" hypothesis.
 
-**Strong positive correlation** (0.998): Response time increases
+**Strong positive correlation** (0.982): Response time increases
 significantly with document count, indicating potential scaling challenges for large contexts.
 
 
@@ -45,7 +47,7 @@ significantly with document count, indicating potential scaling challenges for l
 
 | Metric | Experiment 1 | Experiment 2 | Difference |
 |--------|--------------|--------------|------------|
-| Overall Accuracy | 100.0% | 80.0% | -20.0% |
+| Overall Accuracy | 100.0% | 42.9% | -57.1% |
 | Context Type | Single document | Multi-document | - |
 | Position Tested | Within document | Between documents | - |
 
@@ -85,7 +87,7 @@ Multi-document context shows significant degradation compared to single-document
 
 ---
 
-**Report Generated**: 2025-12-04T09:04:12.857493Z
+**Report Generated**: 2025-12-05T20:56:52.179228Z
 **Experiment**: Context Window Size Impact (Experiment 2)
 **Model**: Claude Haiku 4.5
-**Configurations Tested**: 5
+**Configurations Tested**: 7

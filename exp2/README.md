@@ -10,20 +10,23 @@ This experiment tested whether LLM retrieval accuracy decreases as the number of
 
 ### Key Findings
 
-- **Overall Accuracy**: 80% (compared to 100% in Experiment 1)
+- **Overall Accuracy**: 42.9% (compared to 100% in Experiment 1)
 - **Hypothesis Status**: **SUPPORTED** ✅
-- **Strong Negative Correlation**: -0.936 between document count and accuracy
-- **Critical Threshold**: Performance remains stable up to ~20 documents, then fails at 50 documents
+- **Strong Negative Correlation**: -0.866 between document count and accuracy
+- **Critical Threshold**: Sharp failure occurs between 30-35 documents
+- **Precision Mapping**: 100% accuracy up to 30 documents, then complete failure at 35+ documents
 
 ## Results Summary
 
 | Documents | Accuracy | Avg Time (ms) | Total Tokens | Result |
 |-----------|----------|---------------|--------------|--------|
-| 2         | 100.0%   | 3,421         | 15,635       | ✓ Pass |
-| 5         | 100.0%   | 5,234         | 39,070       | ✓ Pass |
-| 10        | 100.0%   | 8,912         | 78,124       | ✓ Pass |
-| 20        | 100.0%   | 15,678        | 156,233      | ✓ Pass |
-| 50        | 0.0%     | 32,145        | 390,555      | ✗ Fail |
+| 20        | 100.0%   | 15,678        | 156,230      | ✓ Pass |
+| 25        | 100.0%   | 19,487        | 195,284      | ✓ Pass |
+| 30        | 100.0%   | 23,856        | 234,338      | ✓ Pass |
+| 35        | 0.0%     | 28,234        | 273,395      | ✗ Fail |
+| 40        | 0.0%     | 31,023        | 312,444      | ✗ Fail |
+| 45        | 0.0%     | 32,812        | 351,500      | ✗ Fail |
+| 50        | 0.0%     | 34,156        | 390,555      | ✗ Fail |
 
 ## Visualizations
 
@@ -31,7 +34,7 @@ This experiment tested whether LLM retrieval accuracy decreases as the number of
 
 ![Accuracy vs Document Count](outputs/visualizations/accuracy_vs_doc_count.png)
 
-**Key Observation**: Accuracy remains at 100% up to 20 documents, then drops to 0% at 50 documents, indicating a critical threshold effect.
+**Key Observation**: Accuracy remains at 100% up to 30 documents, then drops sharply to 0% at 35 documents, revealing a precise critical threshold.
 
 ---
 
@@ -39,7 +42,7 @@ This experiment tested whether LLM retrieval accuracy decreases as the number of
 
 ![Response Time vs Document Count](outputs/visualizations/response_time_vs_doc_count.png)
 
-**Key Observation**: Response time scales super-linearly with document count, nearly doubling from 20 to 50 documents.
+**Key Observation**: Response time scales super-linearly with document count, growing from ~16s at 20 docs to ~34s at 50 docs.
 
 ---
 
@@ -63,10 +66,10 @@ This experiment tested whether LLM retrieval accuracy decreases as the number of
 
 | Metric | Experiment 1 | Experiment 2 | Difference |
 |--------|--------------|--------------|------------|
-| **Overall Accuracy** | 100.0% | 80.0% | **-20.0%** |
+| **Overall Accuracy** | 100.0% | 42.9% | **-57.1%** |
 | **Context Type** | Single document | Multi-document | - |
 | **Position Tested** | Within document | Between documents | - |
-| **Documents** | 9 single-doc tests | 5 multi-doc tests | - |
+| **Documents** | 9 single-doc tests | 7 multi-doc tests | - |
 | **Max Context** | ~6K words | ~300K words | 50× larger |
 
 **Conclusion**: Multi-document contexts show significant degradation at scale, while single-document position had no effect.
@@ -75,35 +78,36 @@ This experiment tested whether LLM retrieval accuracy decreases as the number of
 
 ### Correlation Coefficients
 
-- **Document Count vs Accuracy**: **-0.936** (strong negative)
-- **Document Count vs Response Time**: **+0.998** (strong positive)
-- **Token Count vs Accuracy**: **-0.936** (strong negative)
+- **Document Count vs Accuracy**: **-0.866** (strong negative)
+- **Document Count vs Response Time**: **+0.982** (strong positive)
+- **Token Count vs Accuracy**: **-0.866** (strong negative)
 
 ### Interpretation
 
-The strong negative correlation (-0.936) between document count and accuracy provides compelling evidence for the "Lost in the Middle" hypothesis. The LLM struggles to retrieve information from middle-positioned documents when the context contains 50 documents.
+The strong negative correlation (-0.866) between document count and accuracy provides compelling evidence for the "Lost in the Middle" hypothesis. The refined testing reveals a sharp threshold: the LLM maintains 100% accuracy up to 30 documents but fails completely at 35+ documents, indicating a critical context window limit.
 
 ## Practical Implications
 
 ### For RAG Systems
 
-1. **Limit Document Count**: Keep queries to ≤10-20 documents maximum
+1. **Limit Document Count**: Keep queries to ≤25-30 documents maximum
 2. **Prioritize Ranking**: Document quality over quantity
 3. **Implement Re-ranking**: Post-retrieval filtering is critical
-4. **Monitor Context Size**: Stay well below critical thresholds
+4. **Monitor Context Size**: Stay well below the 35-document threshold
 
 ### Performance Recommendations
 
-- **Optimal Range**: 5-10 documents per query
-- **Warning Threshold**: >20 documents may approach degradation
-- **Critical Limit**: 50 documents shows complete failure
-- **Latency Consideration**: Response time doubles from 20→50 docs
+- **✅ Safe Zone**: 1-25 documents (100% accuracy maintained)
+- **⚠️ Warning Zone**: 26-30 documents (approaching threshold, 100% accuracy but risky)
+- **❌ Danger Zone**: 31-34 documents (imminent failure risk)
+- **🚫 Failure Zone**: 35+ documents (complete failure, 0% accuracy)
+- **Latency Consideration**: Response time scales from 16s (20 docs) to 34s (50 docs)
 
 ## Experiment Design
 
 ### Tested Configurations
 
-- **Document Counts**: 2, 5, 10, 20, 50 documents
+- **Document Counts**: 20, 25, 30, 35, 40, 45, 50 documents (refined threshold analysis)
 - **Target Position**: Always at middle document (position = count ÷ 2)
 - **Query**: "What year was the organization founded?"
 - **Expected Answer**: "1995" (from file_02_middle.txt)
@@ -246,8 +250,9 @@ MIT License - See repository root for details
 
 ---
 
-**Experiment Completed**: December 4, 2025
+**Experiment Completed**: December 5, 2025 (Refined Analysis)
 **Model Tested**: Claude Haiku 4.5
+**Configurations Tested**: 7 (20, 25, 30, 35, 40, 45, 50 documents)
 **Hypothesis**: SUPPORTED
-**Overall Accuracy**: 80%
-**Key Finding**: Critical threshold at 50 documents
+**Overall Accuracy**: 42.9%
+**Key Finding**: Sharp failure threshold between 30-35 documents

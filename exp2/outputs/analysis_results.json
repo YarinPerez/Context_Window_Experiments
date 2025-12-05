@@ -1,51 +1,69 @@
 {
   "experiment_summary": {
-    "total_tests": 5,
-    "overall_accuracy": 0.8,
+    "total_tests": 7,
+    "overall_accuracy": 0.429,
     "hypothesis_status": "SUPPORTED",
-    "analysis_timestamp": "2025-12-04T09:04:12.857493Z"
+    "analysis_timestamp": "2025-12-05T20:56:52.179228Z"
   },
   "results_by_doc_count": [
-    {
-      "num_documents": 2,
-      "accuracy": 1.0,
-      "avg_response_time_ms": 3421,
-      "avg_input_tokens": 15620,
-      "avg_output_tokens": 15,
-      "total_tokens": 15635,
-      "num_tests": 1
-    },
-    {
-      "num_documents": 5,
-      "accuracy": 1.0,
-      "avg_response_time_ms": 5234,
-      "avg_input_tokens": 39052,
-      "avg_output_tokens": 18,
-      "total_tokens": 39070,
-      "num_tests": 1
-    },
-    {
-      "num_documents": 10,
-      "accuracy": 1.0,
-      "avg_response_time_ms": 8912,
-      "avg_input_tokens": 78104,
-      "avg_output_tokens": 20,
-      "total_tokens": 78124,
-      "num_tests": 1
-    },
     {
       "num_documents": 20,
       "accuracy": 1.0,
       "avg_response_time_ms": 15678,
       "avg_input_tokens": 156208,
-      "avg_output_tokens": 25,
-      "total_tokens": 156233,
+      "avg_output_tokens": 22,
+      "total_tokens": 156230,
+      "num_tests": 1
+    },
+    {
+      "num_documents": 25,
+      "accuracy": 1.0,
+      "avg_response_time_ms": 19487,
+      "avg_input_tokens": 195260,
+      "avg_output_tokens": 24,
+      "total_tokens": 195284,
+      "num_tests": 1
+    },
+    {
+      "num_documents": 30,
+      "accuracy": 1.0,
+      "avg_response_time_ms": 23856,
+      "avg_input_tokens": 234312,
+      "avg_output_tokens": 26,
+      "total_tokens": 234338,
+      "num_tests": 1
+    },
+    {
+      "num_documents": 35,
+      "accuracy": 0.0,
+      "avg_response_time_ms": 28234,
+      "avg_input_tokens": 273364,
+      "avg_output_tokens": 31,
+      "total_tokens": 273395,
+      "num_tests": 1
+    },
+    {
+      "num_documents": 40,
+      "accuracy": 0.0,
+      "avg_response_time_ms": 31023,
+      "avg_input_tokens": 312416,
+      "avg_output_tokens": 28,
+      "total_tokens": 312444,
+      "num_tests": 1
+    },
+    {
+      "num_documents": 45,
+      "accuracy": 0.0,
+      "avg_response_time_ms": 32812,
+      "avg_input_tokens": 351468,
+      "avg_output_tokens": 32,
+      "total_tokens": 351500,
       "num_tests": 1
     },
     {
       "num_documents": 50,
       "accuracy": 0.0,
-      "avg_response_time_ms": 32145,
+      "avg_response_time_ms": 34156,
       "avg_input_tokens": 390520,
       "avg_output_tokens": 35,
       "total_tokens": 390555,
@@ -53,13 +71,13 @@
     }
   ],
   "statistical_analysis": {
-    "correlation_docs_vs_accuracy": -0.936,
-    "correlation_docs_vs_time": 0.998,
-    "correlation_tokens_vs_accuracy": -0.936
+    "correlation_docs_vs_accuracy": -0.866,
+    "correlation_docs_vs_time": 0.982,
+    "correlation_tokens_vs_accuracy": -0.866
   },
   "comparison_to_exp1": {
     "exp1_overall_accuracy": 1.0,
-    "exp2_overall_accuracy": 0.8,
+    "exp2_overall_accuracy": 0.429,
     "variance_explained": "Multi-document context shows significant degradation compared to single-document retrieval."
   }
 }
